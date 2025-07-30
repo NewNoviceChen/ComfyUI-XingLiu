@@ -1,0 +1,209 @@
+{
+  "Image2Image": {
+    "display_name": "图生图",
+    "inputs": {
+      "auth": {
+        "name": "签名参数"
+      },
+      "prompt": {
+        "name": "正向提示词"
+      },
+      "negativePrompt": {
+        "name": "负向提示词"
+      },
+      "clipSkip": {
+        "name": "Clip跳过层"
+      },
+      "sampler": {
+        "name": "采样器枚举值"
+      },
+      "steps": {
+        "name": "采样步数"
+      },
+      "cfgScale": {
+        "name": "cfg_scale"
+      },
+      "randSource": {
+        "name": "类型"
+      },
+      "seed": {
+        "name": "随机种子"
+      },
+      "imgCount": {
+        "name": "单次生图张数"
+      },
+      "restoreFaces": {
+        "name": "面部修复"
+      },
+      "image": {
+        "name": "图像"
+      },
+      "resizeMode": {
+        "name": "缩放模式"
+      },
+      "resizedWidth": {
+        "name": "调整后的图片宽度"
+      },
+      "resizedHeight": {
+        "name": "调整后的图片高度"
+      },
+      "denoisingStrength": {
+        "name": "重绘幅度"
+      },
+      "vaeId": {
+        "name": "VAE模型(可选)"
+      },
+      "lora_list": {
+        "name": "lora合并参数(可选)"
+      },
+      "controlnet_list": {
+        "name": "controlnet合并参数(可选)"
+      }
+    }
+  },
+  "MakeAuth": {
+    "display_name": "制作签名参数"
+  },
+  "MakeControlNet": {
+    "display_name": "制作ControlNet",
+    "inputs": {
+      "auth": {
+        "name": "签名参数"
+      },
+      "image": {
+        "name": "图像"
+      },
+      "preprocessor": {
+        "name": "预处理器"
+      },
+      "controlWeight": {
+        "name": "controlnet权重"
+      },
+      "startingControlStep": {
+        "name": "开始控制步数"
+      },
+      "endingControlStep": {
+        "name": "结束控制步数"
+      },
+      "pixelPerfect": {
+        "name": "完美像素"
+      },
+      "controlMode": {
+        "name": "控制模式"
+      },
+      "resizeMode": {
+        "name": "缩放模式"
+      }
+    }
+  },
+  "MergeControlNet": {
+    "display_name": "合并ControlNet参数"
+  },
+  "MakeHiResFix": {
+    "display_name": "高分辨率修复",
+    "inputs": {
+      "hiresSteps": {
+        "name": "高分辨率修复的重绘步数"
+      },
+      "hiresDenoisingStrength": {
+        "name": "高分辨率修复的重绘幅度"
+      },
+      "upscaler": {
+        "name": "放大算法模型"
+      },
+      "resizedWidth": {
+        "name": "放大后的宽度"
+      },
+      "resizedHeight": {
+        "name": "放大后的高度"
+      }
+    }
+  },
+  "MakeLora": {
+    "display_name": "制作Lora",
+    "inputs": {
+      "auth": {
+        "name": "签名参数"
+      },
+      "modelId": {
+        "name": "LoRA的模型uuid"
+      },
+      "weight": {
+        "name": "LoRA权重"
+      }
+    }
+  },
+  "MergeLora": {
+    "display_name": "合并Lora参数",
+    "inputs": {
+      "auth": {
+        "name": "签名参数"
+      },
+      "modelId": {
+        "name": "LoRA的模型uuid"
+      },
+      "weight": {
+        "name": "LoRA权重"
+      }
+    }
+  },
+  "Text2Image": {
+    "display_name": "文生图",
+    "inputs": {
+      "auth": {
+        "name": "签名参数"
+      },
+      "prompt": {
+        "name": "正向提示词"
+      },
+      "negativePrompt": {
+        "name": "负向提示词"
+      },
+      "clipSkip": {
+        "name": "Clip跳过层"
+      },
+      "sampler": {
+        "name": "采样器枚举值"
+      },
+      "steps": {
+        "name": "采样步数"
+      },
+      "cfgScale": {
+        "name": "cfg_scale"
+      },
+       "width": {
+        "name": "调整后的图片宽度"
+      },
+      "height": {
+        "name": "调整后的图片高度"
+      },
+      "randSource": {
+        "name": "类型"
+      },
+      "seed": {
+        "name": "随机种子"
+      },
+      "imgCount": {
+        "name": "单次生图张数"
+      },
+      "restoreFaces": {
+        "name": "面部修复"
+      },
+      "resizeMode": {
+        "name": "缩放模式"
+      },
+      "denoisingStrength": {
+        "name": "重绘幅度"
+      },
+      "vaeId": {
+        "name": "VAE模型(可选)"
+      },
+      "lora_list": {
+        "name": "lora合并参数(可选)"
+      },
+      "controlnet_list": {
+        "name": "controlnet合并参数(可选)"
+      }
+    }
+  }
+}
