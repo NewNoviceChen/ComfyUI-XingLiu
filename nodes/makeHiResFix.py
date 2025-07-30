@@ -21,14 +21,14 @@ class MakeHiResFixNode:
                     "min": 1,
                     "max": 30,
                     "step": 1,
-                    "display": "slider"}),
+                    "display": "number"}),
                 "hiresDenoisingStrength": ("FLOAT", {
                     "default": 0.75,
                     "min": 0.00,
                     "max": 1.00,
                     "step": 0.01,
                     "round": 0.01,
-                    "display": "slider"}),
+                    "display": "number"}),
                 "upscaler": (["Latent", "Latent (antialiased)", "Latent (bicubic)", "Latent (bicubic antialiased)",
                               "Latent (nearest)", "Latent (nearest-exact)", "Lanczos", "Nearest", "ESRGAN_4x", "LDSR",
                               "R-ESRGAN_4x+", "R-ESRGAN_4x+ Anime6B", "ScuNET GAN", "ScuNET PSNR", "SwinIR_4x",
@@ -41,13 +41,13 @@ class MakeHiResFixNode:
                     "min": 128,
                     "max": 2048,
                     "step": 1,
-                    "display": "slider"}),
+                    "display": "number"}),
                 "resizedHeight": ("INT", {
                     "default": 1536,
                     "min": 128,
                     "max": 2048,
                     "step": 1,
-                    "display": "slider"}),
+                    "display": "number"}),
             }
         }
 

@@ -25,7 +25,7 @@ class MakeLoraNode:
                     "max": 4.0,
                     "step": 0.01,
                     "round": 0.01,
-                    "display": "slider"}),
+                    "display": "number"}),
             }
         }
 

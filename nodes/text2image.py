@@ -30,7 +30,7 @@ class Text2ImageNode:
                     "min": 1,
                     "max": 12,
                     "step": 1,
-                    "display": "slider"}),
+                    "display": "number"}),
                 "sampler": (
                     ["Euler a", "Euler", "LMS", "HEUN", "DPM2", "DPM2 a", "DPM++ 2S a", "DPM++ 2M", "DPM++ SDE",
                      "DPM++ FAST", "DPM++ Adaptive", "LMS Karras", "DPM2 Karras", "DPM2 a Karras", "DPM++ 2S a",
@@ -42,26 +42,26 @@ class Text2ImageNode:
                     "min": 1,
                     "max": 60,
                     "step": 1,
-                    "display": "slider"}),
+                    "display": "number"}),
                 "cfgScale": ("FLOAT", {
                     "default": 7.0,
                     "min": 1.0,
                     "max": 15.0,
                     "step": 0.1,
                     "round": 0.1,
-                    "display": "slider"}),
+                    "display": "number"}),
                 "width": ("INT", {
                     "default": 768,
                     "min": 128,
                     "max": 1536,
                     "step": 1,
-                    "display": "slider"}),
+                    "display": "number"}),
                 "height": ("INT", {
                     "default": 1024,
                     "min": 128,
                     "max": 1536,
                     "step": 1,
-                    "display": "slider"}),
+                    "display": "number"}),
                 "randSource": (["cpu", "gpu"],),
                 "seed": ("INT", {
                     "default": -1,
@@ -80,7 +80,7 @@ class Text2ImageNode:
                     "max": 1.0,
                     "step": 0.01,
                     "round": 0.01,
-                    "display": "slider"}),
+                    "display": "number"}),
             },
             "optional": {
                 "vaeId": (
