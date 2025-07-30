@@ -165,18 +165,18 @@ class MergeControlNetNode:
         # 添加所有非None的controlnet_info到列表中
         if ControlNet_1 is not None and ControlNet_1 != '':
             info = json.loads(ControlNet_1)
-            info["unit_order"] = 1
+            info["unitOrder"] = 1
             controlnet_list.append(info)
         if ControlNet_2 is not None and ControlNet_2 != '':
             info = json.loads(ControlNet_2)
-            info["unit_order"] = 2
+            info["unitOrder"] = 2
             controlnet_list.append(info)
         if ControlNet_3 is not None and ControlNet_3 != '':
             info = json.loads(ControlNet_3)
-            info["unit_order"] = 3
+            info["unitOrder"] = 3
             controlnet_list.append(info)
         if ControlNet_4 is not None and ControlNet_4 != '':
             info = json.loads(ControlNet_4)
-            info["unit_order"] = 4
+            info["unitOrder"] = 4
             controlnet_list.append(info)
         return (controlnet_list,)

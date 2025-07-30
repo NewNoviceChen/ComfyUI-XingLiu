@@ -1,9 +1,35 @@
 {
-  "Image2Image": {
-    "display_name": "图生图",
+  "Image2ImageByAlpha": {
+    "display_name": "星流Star-3 Alpha图生图",
     "inputs": {
       "auth": {
         "name": "签名参数"
+      },
+      "prompt": {
+        "name": "正向提示词"
+      },
+      "imgCount": {
+        "name": "单次生图张数"
+      },
+      "sourceImage": {
+        "name": "参考图像"
+      },
+      "controlType": {
+        "name": "controlnet类型"
+      },
+      "controlImage": {
+        "name": "controlnet参考图"
+      }
+    }
+  },
+  "Image2ImageCustom": {
+    "display_name": "自定义图生图",
+    "inputs": {
+      "auth": {
+        "name": "签名参数"
+      },
+      "checkPointId": {
+        "name": "底模uuid"
       },
       "prompt": {
         "name": "正向提示词"
@@ -147,11 +173,40 @@
       }
     }
   },
-  "Text2Image": {
-    "display_name": "文生图",
+  "Text2ImageByAlpha": {
+    "display_name": "星流Star-3 Alpha文生图",
     "inputs": {
       "auth": {
         "name": "签名参数"
+      },
+      "prompt": {
+        "name": "正向提示词"
+      },
+      "imgCount": {
+        "name": "单次生图张数"
+      },
+      "width": {
+        "name": "调整后的图片宽度"
+      },
+      "height": {
+        "name": "调整后的图片高度"
+      },
+      "controlType": {
+        "name": "controlnet类型"
+      },
+      "controlImage": {
+        "name": "controlnet参考图"
+      }
+    }
+  },
+  "Text2ImageCustom": {
+    "display_name": "自定义文生图",
+    "inputs": {
+      "auth": {
+        "name": "签名参数"
+      },
+      "checkPointId": {
+        "name": "底模uuid"
       },
       "prompt": {
         "name": "正向提示词"
@@ -171,7 +226,7 @@
       "cfgScale": {
         "name": "cfg_scale"
       },
-       "width": {
+      "width": {
         "name": "调整后的图片宽度"
       },
       "height": {

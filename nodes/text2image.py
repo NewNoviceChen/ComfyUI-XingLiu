@@ -12,7 +12,7 @@ from ..server.generateServer import GenerateServer
 CATEGORY_NAME = "ComfyUI-XingLiu"
 
 
-class Text2ImageNode:
+class Text2ImageByAlphaNode:
     def __init__(self):
         pass
 
@@ -23,6 +23,100 @@ class Text2ImageNode:
         return {
             "required": {
                 "auth": ("AUTH",),
+                "prompt": ("STRING", {"multiline": True}),
+                "imgCount": ("INT", {
+                    "default": 1,
+                    "min": 1,
+                    "max": 4,
+                    "step": 1,
+                    "display": "number"}),
+                "width": ("INT", {
+                    "default": 768,
+                    "min": 128,
+                    "max": 1536,
+                    "step": 1,
+                    "display": "number"}),
+                "height": ("INT", {
+                    "default": 1024,
+                    "min": 128,
+                    "max": 1536,
+                    "step": 1,
+                    "display": "number"}),
+            },
+            "optional": {
+                "controlType": (["line", "depth", "pose", "IPAdapter"],),
+                "controlImage": ("IMAGE",),
+            }
+        }
+
+    RETURN_TYPES = ('IMAGE',)
+    RETURN_NAMES = ('IMAGE',)
+    FUNCTION = "text2img"
+
+    def text2img(self,
+                 auth,
+                 prompt,
+                 imgCount,
+                 width,
+                 height,
+                 controlType=None,
+                 controlImage=None):
+
+        accessKey = os.getenv("LibLibAccessKey")
+        secretKey = os.getenv("LibLibSecretKey")
+        if controlImage != None:
+            controlImage = uploadLibLib(controlImage, accessKey, secretKey)
+        json_data = {
+            "templateUuid": "5d7e67009b344550bc1aa6ccbfa1d7f4",
+            "generateParams": {
+                "prompt": prompt,
+                "imageSize": {
+                    "width": width,
+                    "height": height,
+                },
+                "imgCount": imgCount,
+                "steps": 30,
+                "controlnet": {
+                    "controlType": controlType,
+                    "controlImage": controlImage,
+                } if controlType is not None and controlImage is not None else {},
+            }
+        }
+
+        generateServer = GenerateServer(accessKey=accessKey, secretKey=secretKey)
+        data = generateServer._request_signature_uri("/api/generate/webui/text2img/ultra", json_data)
+        generateUuid = data["generateUuid"]
+        json_data = {"generateUuid": generateUuid}
+        image_tensors = []
+        batched = None
+        while True:
+            data = generateServer._request_signature_uri("/api/generate/webui/status", json_data)
+            if data["generateStatus"] == 5:
+                for image in data["images"]:
+                    image_tensor = image_to_tensor_by_url(image["imageUrl"])
+                    image_tensors.append(image_tensor)
+                break
+            if data["generateStatus"] == 6 or data["generateStatus"] == 7:
+                raise Exception("执行失败")
+            time.sleep(5)
+
+        if image_tensors:  # 确保列表不为空
+            batched = torch.cat(image_tensors, dim=0)
+        return (batched,)
+
+
+class Text2ImageCustomNode:
+    def __init__(self):
+        pass
+
+    CATEGORY = CATEGORY_NAME
+
+    @classmethod
+    def INPUT_TYPES(s):
+        return {
+            "required": {
+                "auth": ("AUTH",),
+                "checkPointId": ("STRING",),
                 "prompt": ("STRING", {"multiline": True}),
                 "negativePrompt": ("STRING", {"multiline": True}),
                 "clipSkip": ("INT", {
@@ -105,6 +199,7 @@ class Text2ImageNode:
     def img2img(self,
                 auth,
                 vaeId,
+                checkPointId,
                 prompt,
                 negativePrompt,
                 clipSkip,
@@ -134,8 +229,9 @@ class Text2ImageNode:
         accessKey = os.getenv("LibLibAccessKey")
         secretKey = os.getenv("LibLibSecretKey")
         json_data = {
-            "templateUuid": "5d7e67009b344550bc1aa6ccbfa1d7f4",
+            "templateUuid": "e10adc3949ba59abbe56e057f20f883e",
             "generateParams": {
+                "checkPointId": checkPointId,
                 "vaeId": vaeId,
                 "prompt": prompt,
                 "negativePrompt": negativePrompt,
@@ -160,7 +256,7 @@ class Text2ImageNode:
             }
         }
         generateServer = GenerateServer(accessKey=accessKey, secretKey=secretKey)
-        data = generateServer._request_signature_uri("/api/generate/webui/text2img/ultra", json_data)
+        data = generateServer._request_signature_uri("/api/generate/webui/text2img", json_data)
         generateUuid = data["generateUuid"]
         json_data = {"generateUuid": generateUuid}
         image_tensors = []

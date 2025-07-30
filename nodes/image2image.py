@@ -12,7 +12,7 @@ from ..server.generateServer import GenerateServer
 CATEGORY_NAME = "ComfyUI-XingLiu"
 
 
-class Image2ImageNode:
+class Image2ImageByAlphaNode:
     def __init__(self):
         pass
 
@@ -23,6 +23,86 @@ class Image2ImageNode:
         return {
             "required": {
                 "auth": ("AUTH",),
+                "prompt": ("STRING", {"multiline": True}),
+                "imgCount": ("INT", {
+                    "default": 1,
+                    "min": 1,
+                    "max": 4,
+                    "step": 1,
+                    "display": "number"}),
+                "sourceImage": ("IMAGE",),
+
+            },
+            "optional": {
+                "controlType": (["line", "depth", "pose", "IPAdapter"],),
+                "controlImage": ("IMAGE",),
+            }
+        }
+
+    RETURN_TYPES = ('IMAGE',)
+    RETURN_NAMES = ('IMAGE',)
+    FUNCTION = "img2img"
+
+    def img2img(self,
+                auth,
+                prompt,
+                imgCount,
+                sourceImage,
+                controlType=None,
+                controlImage=None):
+
+        accessKey = os.getenv("LibLibAccessKey")
+        secretKey = os.getenv("LibLibSecretKey")
+        sourceImage = uploadLibLib(sourceImage, accessKey, secretKey)
+        if controlImage != None:
+            controlImage = uploadLibLib(controlImage, accessKey, secretKey)
+        json_data = {
+            "templateUuid": "07e00af4fc464c7ab55ff906f8acf1b7",
+            "generateParams": {
+                "prompt": prompt,
+                "imgCount": imgCount,
+                "sourceImage": sourceImage,
+                "controlnet": {
+                    "controlType": controlType,
+                    "controlImage": controlImage,
+                } if controlType is not None and controlImage is not None else {},
+            }
+        }
+
+        generateServer = GenerateServer(accessKey=accessKey, secretKey=secretKey)
+        data = generateServer._request_signature_uri("/api/generate/webui/img2img/ultra", json_data)
+        generateUuid = data["generateUuid"]
+        json_data = {"generateUuid": generateUuid}
+        image_tensors = []
+        batched = None
+        while True:
+            data = generateServer._request_signature_uri("/api/generate/webui/status", json_data)
+            if data["generateStatus"] == 5:
+                for image in data["images"]:
+                    image_tensor = image_to_tensor_by_url(image["imageUrl"])
+                    image_tensors.append(image_tensor)
+                break
+            if data["generateStatus"] == 6 or data["generateStatus"] == 7:
+                raise Exception("执行失败")
+            time.sleep(5)
+
+        if image_tensors:  # 确保列表不为空
+            batched = torch.cat(image_tensors, dim=0)
+        return (batched,)
+
+
+class Image2ImageCustomNode:
+    def __init__(self):
+        pass
+
+    CATEGORY = CATEGORY_NAME
+
+    @classmethod
+    def INPUT_TYPES(s):
+        return {
+            "required": {
+                "auth": ("AUTH",),
+                "checkPointId": ("STRING",),
                 "prompt": ("STRING", {"multiline": True}),
                 "negativePrompt": ("STRING", {"multiline": True}),
                 "clipSkip": ("INT", {
@@ -63,19 +143,19 @@ class Image2ImageNode:
                     "display": "number"}),
                 "restoreFaces": (["关闭", "开启"],),
                 "image": ("IMAGE",),
-                # "resizeMode": (["just_resize", "crop_and_resize ", "resize_and_fill"],),
-                # "resizedWidth": ("INT", {
-                #     "default": 1024,
-                #     "min": 128,
-                #     "max": 2048,
-                #     "step": 1,
-                #     "display": "number"}),
-                # "resizedHeight": ("INT", {
-                #     "default": 1536,
-                #     "min": 128,
-                #     "max": 2048,
-                #     "step": 1,
-                #     "display": "number"}),
+                "resizeMode": (["just_resize", "crop_and_resize ", "resize_and_fill"],),
+                "resizedWidth": ("INT", {
+                    "default": 1024,
+                    "min": 128,
+                    "max": 2048,
+                    "step": 1,
+                    "display": "number"}),
+                "resizedHeight": ("INT", {
+                    "default": 1536,
+                    "min": 128,
+                    "max": 2048,
+                    "step": 1,
+                    "display": "number"}),
                 "denoisingStrength": ("FLOAT", {
                     "default": 0.75,
                     "min": 0.0,
@@ -104,6 +184,7 @@ class Image2ImageNode:
 
     def img2img(self,
                 auth,
+                checkPointId,
                 vaeId,
                 prompt,
                 negativePrompt,
@@ -116,9 +197,9 @@ class Image2ImageNode:
                 imgCount,
                 restoreFaces,
                 image,
-                # resizeMode,
-                # resizedWidth,
-                # resizedHeight,
+                resizeMode,
+                resizedWidth,
+                resizedHeight,
                 denoisingStrength,
                 lora_list=None,
                 controlnet_list=None):
@@ -129,15 +210,16 @@ class Image2ImageNode:
                    "DPM++ 3M SDE Karras", "DPM++ 3M SDE Exponential", "Restart", "LCM"].index(sampler)
         randSource = ["cpu", "gpu"].index(randSource)
         restoreFaces = ["关闭", "开启"].index(restoreFaces)
-        # resizeMode = ["just_resize", "crop_and_resize ", "resize_and_fill"].index(resizeMode)
+        resizeMode = ["just_resize", "crop_and_resize ", "resize_and_fill"].index(resizeMode)
         vaeId = get_vad_uuid_by_vad_name(vaeId)
 
         accessKey = os.getenv("LibLibAccessKey")
         secretKey = os.getenv("LibLibSecretKey")
         sourceImage = uploadLibLib(image, accessKey, secretKey)
         json_data = {
-            "templateUuid": "07e00af4fc464c7ab55ff906f8acf1b7",
+            "templateUuid": "9c7d531dc75f476aa833b3d452b8f7ad",
             "generateParams": {
+                "checkPointId": checkPointId,
                 "vaeId": vaeId,
                 "prompt": prompt,
                 "negativePrompt": negativePrompt,
@@ -150,9 +232,9 @@ class Image2ImageNode:
                 "imgCount": imgCount,
                 "restoreFaces": restoreFaces,
                 "sourceImage": sourceImage,
-                # "resizeMode": resizeMode,
-                # "resizedWidth": resizedWidth,
-                # "resizedHeight": resizedHeight,
+                "resizeMode": resizeMode,
+                "resizedWidth": resizedWidth,
+                "resizedHeight": resizedHeight,
                 "mode": 0,
                 "denoisingStrength": denoisingStrength,
                 "inpaintParam": {},
@@ -160,9 +242,11 @@ class Image2ImageNode:
                 "controlNet": controlnet_list if controlnet_list else None
             }
         }
+        print(json_data)
         generateServer = GenerateServer(accessKey=accessKey, secretKey=secretKey)
-        data = generateServer._request_signature_uri("/api/generate/webui/img2img/ultra", json_data)
+        data = generateServer._request_signature_uri("/api/generate/webui/img2img", json_data)
         generateUuid = data["generateUuid"]
+        print(generateUuid)
         json_data = {"generateUuid": generateUuid}
         image_tensors = []
         batched = None
