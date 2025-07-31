@@ -87,6 +87,59 @@
       }
     }
   },
+  "Image2ImageCustomAlpha": {
+    "display_name": "星流Star-3 Alpha自定义图生图(测试)",
+    "inputs": {
+      "auth": {
+        "name": "签名参数"
+      },
+      "prompt": {
+        "name": "正向提示词"
+      },
+      "negativePrompt": {
+        "name": "负向提示词"
+      },
+      "clipSkip": {
+        "name": "Clip跳过层"
+      },
+      "sampler": {
+        "name": "采样器枚举值"
+      },
+      "steps": {
+        "name": "采样步数"
+      },
+      "cfgScale": {
+        "name": "cfg_scale"
+      },
+      "randSource": {
+        "name": "类型"
+      },
+      "seed": {
+        "name": "随机种子"
+      },
+      "imgCount": {
+        "name": "单次生图张数"
+      },
+      "restoreFaces": {
+        "name": "面部修复"
+      },
+      "image": {
+        "name": "图像"
+      },
+      "denoisingStrength": {
+        "name": "重绘幅度"
+      },
+      "vaeId": {
+        "name": "VAE模型(可选)"
+      },
+      "lora_list": {
+        "name": "lora合并参数(可选)"
+      },
+      "controlnet_list": {
+        "name": "controlnet合并参数(可选)"
+      }
+    }
+  },
   "MakeAuth": {
     "display_name": "制作签名参数"
   },
@@ -207,6 +260,65 @@
       },
       "checkPointId": {
         "name": "底模uuid"
+      },
+      "prompt": {
+        "name": "正向提示词"
+      },
+      "negativePrompt": {
+        "name": "负向提示词"
+      },
+      "clipSkip": {
+        "name": "Clip跳过层"
+      },
+      "sampler": {
+        "name": "采样器枚举值"
+      },
+      "steps": {
+        "name": "采样步数"
+      },
+      "cfgScale": {
+        "name": "cfg_scale"
+      },
+      "width": {
+        "name": "调整后的图片宽度"
+      },
+      "height": {
+        "name": "调整后的图片高度"
+      },
+      "randSource": {
+        "name": "类型"
+      },
+      "seed": {
+        "name": "随机种子"
+      },
+      "imgCount": {
+        "name": "单次生图张数"
+      },
+      "restoreFaces": {
+        "name": "面部修复"
+      },
+      "resizeMode": {
+        "name": "缩放模式"
+      },
+      "denoisingStrength": {
+        "name": "重绘幅度"
+      },
+      "vaeId": {
+        "name": "VAE模型(可选)"
+      },
+      "lora_list": {
+        "name": "lora合并参数(可选)"
+      },
+      "controlnet_list": {
+        "name": "controlnet合并参数(可选)"
+      }
+    }
+  },
+  "Text2ImageCustomAlpha": {
+    "display_name": "星流Star-3 Alpha自定义文生图(测试)",
+    "inputs": {
+      "auth": {
+        "name": "签名参数"
       },
       "prompt": {
         "name": "正向提示词"
