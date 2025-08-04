@@ -47,9 +47,9 @@ class MakeLoraNode:
         generateServer = GenerateServer(accessKey=accessKey, secretKey=secretKey)
         data = generateServer._request_signature_uri("/api/model/version/get", json_data)
         if data is None:
-            raise Exception("模型不存在")
+            raise Exception("The model does not exist")
         if data["commercialUse"] != 1:
-            raise Exception("模型不可商用")
+            raise Exception("The model is not for commercial use.")
         lora = {
             "modelId": modelId,
             "weight": weight,

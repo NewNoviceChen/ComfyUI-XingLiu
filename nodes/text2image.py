@@ -97,7 +97,7 @@ class Text2ImageByAlphaNode:
                     image_tensors.append(image_tensor)
                 break
             if data["generateStatus"] == 6 or data["generateStatus"] == 7:
-                raise Exception("执行失败")
+                raise Exception("error")
             time.sleep(5)
 
         if image_tensors:  # 确保列表不为空
@@ -166,7 +166,7 @@ class Text2ImageCustomNode:
                     "max": 4,
                     "step": 1,
                     "display": "number"}),
-                "restoreFaces": (["关闭", "开启"],),
+                "restoreFaces": (["off", "on"],),
                 "resizeMode": (["just_resize", "crop_and_resize ", "resize_and_fill"],),
                 "denoisingStrength": ("FLOAT", {
                     "default": 0.75,
@@ -178,13 +178,14 @@ class Text2ImageCustomNode:
             },
             "optional": {
                 "vaeId": (
-                    ["通用 - Automatic",
-                     "基础算法 1.5 - vae-ft-mse-840000-ema-pruned.safetensors",
-                     "基础算法 1.5 - klF8Anime2VAE_klF8Anime2VAE.ckpt",
-                     "基础算法 1.5 - color101VAE_v1.pt", "基础算法 1.5 - cute vae.safetensors",
-                     "基础算法 1.5 - ClearVAE_V2.3.safetensors",
-                     "基础算法 1.5 - difconsistencyRAWVAE_v10.pt",
-                     "基础算法 XL - sd_xl_vae_1.0"],),
+                    ["Automatic",
+                     "1.5 - vae-ft-mse-840000-ema-pruned.safetensors",
+                     "1.5 - klF8Anime2VAE_klF8Anime2VAE.ckpt",
+                     "1.5 - color101VAE_v1.pt",
+                     "1.5 - cute vae.safetensors",
+                     "1.5 - ClearVAE_V2.3.safetensors",
+                     "1.5 - difconsistencyRAWVAE_v10.pt",
+                     "XL - sd_xl_vae_1.0"],),
                 "hiResFix": ("HIRESFIX", {"forceInput": True}),
                 "lora_list": ("LORA_LIST", {"forceInput": True}),
                 "controlnet_list": ("CONTROLNET_LIST", {"forceInput": True})
@@ -223,7 +224,7 @@ class Text2ImageCustomNode:
                    "DPM++ 2M SDE EXPONENTIAL", "DPM++ 2M SDE Heun Karras", "DPM++ 2M SDE Heun Exponential",
                    "DPM++ 3M SDE Karras", "DPM++ 3M SDE Exponential", "Restart", "LCM"].index(sampler)
         randSource = ["cpu", "gpu"].index(randSource)
-        restoreFaces = ["关闭", "开启"].index(restoreFaces)
+        restoreFaces = ["off", "on"].index(restoreFaces)
         resizeMode = ["just_resize", "crop_and_resize ", "resize_and_fill"].index(resizeMode)
         vaeId = get_vad_uuid_by_vad_name(vaeId)
         accessKey = os.getenv("LibLibAccessKey")
@@ -269,7 +270,7 @@ class Text2ImageCustomNode:
                     image_tensors.append(image_tensor)
                 break
             if data["generateStatus"] == 6 or data["generateStatus"] == 7:
-                raise Exception("执行失败")
+                raise Exception("error")
             time.sleep(5)
 
         if image_tensors:  # 确保列表不为空
@@ -336,7 +337,7 @@ class Text2ImageCustomAlphaNode:
                     "max": 4,
                     "step": 1,
                     "display": "number"}),
-                "restoreFaces": (["关闭", "开启"],),
+                "restoreFaces": (["off", "on"],),
                 "resizeMode": (["just_resize", "crop_and_resize ", "resize_and_fill"],),
                 "denoisingStrength": ("FLOAT", {
                     "default": 0.75,
@@ -348,13 +349,14 @@ class Text2ImageCustomAlphaNode:
             },
             "optional": {
                 "vaeId": (
-                    ["通用 - Automatic",
-                     "基础算法 1.5 - vae-ft-mse-840000-ema-pruned.safetensors",
-                     "基础算法 1.5 - klF8Anime2VAE_klF8Anime2VAE.ckpt",
-                     "基础算法 1.5 - color101VAE_v1.pt", "基础算法 1.5 - cute vae.safetensors",
-                     "基础算法 1.5 - ClearVAE_V2.3.safetensors",
-                     "基础算法 1.5 - difconsistencyRAWVAE_v10.pt",
-                     "基础算法 XL - sd_xl_vae_1.0"],),
+                    ["Automatic",
+                     "1.5 - vae-ft-mse-840000-ema-pruned.safetensors",
+                     "1.5 - klF8Anime2VAE_klF8Anime2VAE.ckpt",
+                     "1.5 - color101VAE_v1.pt",
+                     "1.5 - cute vae.safetensors",
+                     "1.5 - ClearVAE_V2.3.safetensors",
+                     "1.5 - difconsistencyRAWVAE_v10.pt",
+                     "XL - sd_xl_vae_1.0"],),
                 "hiResFix": ("HIRESFIX", {"forceInput": True}),
                 "lora_list": ("LORA_LIST", {"forceInput": True}),
                 "controlnet_list": ("CONTROLNET_LIST", {"forceInput": True})
@@ -392,7 +394,7 @@ class Text2ImageCustomAlphaNode:
                    "DPM++ 2M SDE EXPONENTIAL", "DPM++ 2M SDE Heun Karras", "DPM++ 2M SDE Heun Exponential",
                    "DPM++ 3M SDE Karras", "DPM++ 3M SDE Exponential", "Restart", "LCM"].index(sampler)
         randSource = ["cpu", "gpu"].index(randSource)
-        restoreFaces = ["关闭", "开启"].index(restoreFaces)
+        restoreFaces = ["off", "on"].index(restoreFaces)
         resizeMode = ["just_resize", "crop_and_resize ", "resize_and_fill"].index(resizeMode)
         vaeId = get_vad_uuid_by_vad_name(vaeId)
         accessKey = os.getenv("LibLibAccessKey")
@@ -437,7 +439,7 @@ class Text2ImageCustomAlphaNode:
                     image_tensors.append(image_tensor)
                 break
             if data["generateStatus"] == 6 or data["generateStatus"] == 7:
-                raise Exception("执行失败")
+                raise Exception("error")
             time.sleep(5)
 
         if image_tensors:  # 确保列表不为空

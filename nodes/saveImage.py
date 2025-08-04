@@ -56,7 +56,7 @@ class SaveImage:
                     image_tensors.append(image_tensor)
                 break
             if data["generateStatus"] == 6 or data["generateStatus"] == 7:
-                raise Exception("执行失败")
+                raise Exception("error")
             time.sleep(5)
         if image_tensors:  # 确保列表不为空
             batched = torch.cat(image_tensors, dim=0)
