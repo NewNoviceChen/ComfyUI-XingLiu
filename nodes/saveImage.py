@@ -1,9 +1,7 @@
-import json
 import os
 import time
 
 import torch
-import torchvision
 
 from ..server.generateServer import GenerateServer
 from ..server.imagesUtils import image_to_tensor_by_url

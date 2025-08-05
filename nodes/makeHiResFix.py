@@ -1,7 +1,5 @@
 import json
 
-from ..server.getModel import get_upscaler_keys
-
 CATEGORY_NAME = "ComfyUI-XingLiu"
 
 
