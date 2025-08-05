@@ -59,7 +59,7 @@ class MakeControlNetNode:
                      "Inpaint - inpaint_global_harmonious",
                      "Inpaint - inpaint_only",
                      "Inpaint - inpaint_only+lama"
-                     ]
+                     ],
                 ),
                 "controlWeight": ("FLOAT", {
                     "default": 1.0,
