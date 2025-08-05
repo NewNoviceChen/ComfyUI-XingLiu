@@ -6,14 +6,14 @@ checkPointUuidMap = {
 }
 
 vad_map = {
-    '通用 - Automatic': '',
-    '基础算法 1.5 - vae-ft-mse-840000-ema-pruned.safetensors': '2c1a337416e029dd65ab58784e8a4763',
-    '基础算法 1.5 - klF8Anime2VAE_klF8Anime2VAE.ckpt': 'd4a03b32d8d59552194a9453297180c1',
-    '基础算法 1.5 - color101VAE_v1.pt': 'd9be20ad5a7195ff0d97925e5afc7912',
-    '基础算法 1.5 - cute vae.safetensors': '88ae7501f5194e691a1dc32d6f7c6f1a',
-    '基础算法 1.5 - ClearVAE_V2.3.safetensors': '73f6e055eade7a85bda2856421d786fe',
-    '基础算法 1.5 - difconsistencyRAWVAE_v10.pt': '5e93d0d2a64143a9d28988e75f28cb29',
-    '基础算法 XL - sd_xl_vae_1.0': '3cefd3e4af2b8effb230b960da41a980',
+    'Automatic': '',
+    '1.5 - vae-ft-mse-840000-ema-pruned.safetensors': '2c1a337416e029dd65ab58784e8a4763',
+    '1.5 - klF8Anime2VAE_klF8Anime2VAE.ckpt': 'd4a03b32d8d59552194a9453297180c1',
+    '1.5 - color101VAE_v1.pt': 'd9be20ad5a7195ff0d97925e5afc7912',
+    '1.5 - cute vae.safetensors': '88ae7501f5194e691a1dc32d6f7c6f1a',
+    '1.5 - ClearVAE_V2.3.safetensors': '73f6e055eade7a85bda2856421d786fe',
+    '1.5 - difconsistencyRAWVAE_v10.pt': '5e93d0d2a64143a9d28988e75f28cb29',
+    'XL - sd_xl_vae_1.0': '3cefd3e4af2b8effb230b960da41a980',
 }
 
 lora_map = {

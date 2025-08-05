@@ -1,5 +1,5 @@
 annotationParametersMap = {
-    "线稿类 - Canny（硬边缘）": {
+    "Canny": {
         "preprocessor": 1,
         "annotationParameters": {
             "canny": {
@@ -10,7 +10,7 @@ annotationParametersMap = {
         },
         "model": "13c1e1b96ba64f9cbb2b54f89b5fe873"
     },
-    "线稿类 - SoftEdge（软边缘）- hed": {
+    "SoftEdge - hed": {
         "preprocessor": 5,
         "annotationParameters": {
             "hed": {
@@ -19,7 +19,7 @@ annotationParametersMap = {
         },
         "model": "13c1e1b96ba64f9cbb2b54f89b5fe873"
     },
-    "线稿类 - SoftEdge（软边缘）- hed_safe": {
+    "SoftEdge - hed_safe": {
         "preprocessor": 6,
         "annotationParameters": {
             "hedSafe": {
@@ -28,7 +28,7 @@ annotationParametersMap = {
         },
         "model": "13c1e1b96ba64f9cbb2b54f89b5fe873"
     },
-    "线稿类 - SoftEdge（软边缘）- pidinet": {
+    "SoftEdge - pidinet": {
         "preprocessor": 17,
         "annotationParameters": {
             "pidinet": {
@@ -37,7 +37,7 @@ annotationParametersMap = {
         },
         "model": "13c1e1b96ba64f9cbb2b54f89b5fe873"
     },
-    "线稿类 - SoftEdge（软边缘）- pidinet_safe": {
+    "SoftEdge - pidinet_safe": {
         "preprocessor": 18,
         "annotationParameters": {
             "pidinetSafe": {
@@ -46,7 +46,7 @@ annotationParametersMap = {
         },
         "model": "13c1e1b96ba64f9cbb2b54f89b5fe873"
     },
-    "线稿类 - SoftEdge（软边缘）- softedge_teed": {
+    "SoftEdge - softedge_teed": {
         "preprocessor": 58,
         "annotationParameters": {
             "softedgeTeed": {
@@ -56,7 +56,7 @@ annotationParametersMap = {
         },
         "model": "3e6860a3b9444f25ae07d9c1b5d1ba9e"
     },
-    "线稿类 - SoftEdge（软边缘）- softedge_anyline": {
+    "SoftEdge - softedge_anyline": {
         "preprocessor": 65,
         "annotationParameters": {
             "softedgeAnyline": {
@@ -66,7 +66,7 @@ annotationParametersMap = {
         },
         "model": "3e6860a3b9444f25ae07d9c1b5d1ba9e"
     },
-    # "线稿类 - MLSD（直线） - mlsd (M-LSD 直线线条检测)": {
+    # "MLSD（直线） - mlsd (M-LSD 直线线条检测)": {
     #     "preprocessor": 8,
     #     "annotationParameters": {
     #         "mlsd": {
@@ -76,7 +76,7 @@ annotationParametersMap = {
     #         }
     #     }
     # },
-    "线稿类 - Scribble/Sketch（涂鸦/草图）- scribble_pidinet(涂鸦- 手绘)": {
+    "Scribble/Sketch - scribble_pidinet": {
         "preprocessor": 20,
         "annotationParameters": {
             "scribblePidinet": {
@@ -85,7 +85,7 @@ annotationParametersMap = {
         },
         "model": "13c1e1b96ba64f9cbb2b54f89b5fe873"
     },
-    "线稿类 - Scribble/Sketch（涂鸦/草图）- scribble_xdog (涂鸦- 强化边缘)": {
+    "Scribble/Sketch - scribble_xdog": {
         "preprocessor": 21,
         "annotationParameters": {
             "scribbleXdog": {
@@ -94,7 +94,7 @@ annotationParametersMap = {
             }
         }
     },
-    "线稿类 - Scribble/Sketch（涂鸦/草图）- scribble_hed(涂鸦 -合成)": {
+    "Scribble/Sketch - scribble_hed": {
         "preprocessor": 22,
         "annotationParameters": {
             "scribbleHed": {
@@ -103,7 +103,7 @@ annotationParametersMap = {
         },
         "model": "13c1e1b96ba64f9cbb2b54f89b5fe873"
     },
-    "线稿类 - Lineart（线稿）- lineart_realistic (写实线稿提取)": {
+    "Lineart- lineart_realistic": {
         "preprocessor": 29,
         "annotationParameters": {
             "lineartRealistic": {
@@ -112,7 +112,7 @@ annotationParametersMap = {
         },
         "model": "13c1e1b96ba64f9cbb2b54f89b5fe873"
     },
-    "线稿类 - Lineart（线稿）- lineart standard (标准线稿提取 -白底黑线反色)": {
+    "Lineart - lineart standard": {
         "preprocessor": 32,
         "annotationParameters": {
             "lineartStandard": {
@@ -121,7 +121,7 @@ annotationParametersMap = {
         },
         "model": "13c1e1b96ba64f9cbb2b54f89b5fe873"
     },
-    "线稿类 - Lineart（线稿）- lineart coarse (粗略线稿提取)": {
+    "Lineart - lineart coarse": {
         "preprocessor": 30,
         "annotationParameters": {
             "lineartCoarse": {
@@ -130,7 +130,7 @@ annotationParametersMap = {
         },
         "model": "13c1e1b96ba64f9cbb2b54f89b5fe873"
     },
-    "线稿类 - Lineart（线稿）- lineart_anime (动漫线稿提取)": {
+    "Lineart - lineart_anime": {
         "preprocessor": 31,
         "annotationParameters": {
             "lineartAnime": {
@@ -139,7 +139,7 @@ annotationParametersMap = {
         },
         "model": "13c1e1b96ba64f9cbb2b54f89b5fe873"
     },
-    "线稿类 - Lineart（线稿）- lineart_anime_denoise(动漫线稿提取-去噪)": {
+    "Lineart - lineart_anime_denoise": {
         "preprocessor": 36,
         "annotationParameters": {
             "lineartAnimeDenoise": {
@@ -148,7 +148,7 @@ annotationParametersMap = {
         },
         "model": "13c1e1b96ba64f9cbb2b54f89b5fe873"
     },
-    "空间关系类 - Depth（深度图）- depth_midas": {
+    "Depth - depth_midas": {
         "preprocessor": 2,
         "annotationParameters": {
             "depthMidas": {
@@ -157,7 +157,7 @@ annotationParametersMap = {
         },
         "model": "13c1e1b96ba64f9cbb2b54f89b5fe873"
     },
-    "空间关系类 - Depth（深度图）- depth_leres (LeRes 深度图估算)": {
+    "Depth - depth_leres (LeRes)": {
         "preprocessor": 3,
         "annotationParameters": {
             "depthLeres": {
@@ -168,7 +168,7 @@ annotationParametersMap = {
         },
         "model": "13c1e1b96ba64f9cbb2b54f89b5fe873"
     },
-    "空间关系类 - Depth（深度图）- depth_leres++": {
+    "Depth - depth_leres++": {
         "preprocessor": 4,
         "annotationParameters": {
             "depthLeresPlus": {
@@ -179,7 +179,7 @@ annotationParametersMap = {
         },
         "model": "13c1e1b96ba64f9cbb2b54f89b5fe873"
     },
-    "空间关系类 - Depth（深度图）- depth_zoe (ZoE 深度图估算)": {
+    "Depth - depth_zoe (ZoE)": {
         "preprocessor": 25,
         "annotationParameters": {
             "depthZoe": {
@@ -188,7 +188,7 @@ annotationParametersMap = {
         },
         "model": "13c1e1b96ba64f9cbb2b54f89b5fe873"
     },
-    "空间关系类 - Depth（深度图）- depth_hand_refiner": {
+    "Depth - depth_hand_refiner": {
         "preprocessor": 57,
         "annotationParameters": {
             "depthHandRefiner": {
@@ -197,7 +197,7 @@ annotationParametersMap = {
         },
         "model": "13c1e1b96ba64f9cbb2b54f89b5fe873"
     },
-    "空间关系类 - Depth（深度图）- depth_anything": {
+    "Depth - depth_anything": {
         "preprocessor": 64,
         "annotationParameters": {
             "depthAnything": {
@@ -238,7 +238,7 @@ annotationParametersMap = {
     #         }
     #     }
     # },
-    "空间关系类 - Normal（正态）- normal_map": {
+    "Normal - normal_map": {
         "preprocessor": 9,
         "annotationParameters": {
             "normalMap": {
@@ -248,7 +248,7 @@ annotationParametersMap = {
         },
         "model": "e51fdccdf3b8417aab246bde40b5f360"
     },
-    "空间关系类 - Normal（正态）- normal bae (Bae 法线贴图提取)": {
+    "Normal - normal bae (Bae)": {
         "preprocessor": 26,
         "annotationParameters": {
             "normalBae": {
@@ -257,7 +257,7 @@ annotationParametersMap = {
         },
         "model": "e51fdccdf3b8417aab246bde40b5f360"
     },
-    "姿态类 - OpenPose（姿态）- mediapipe_face": {
+    "OpenPose - mediapipe_face": {
         "preprocessor": 7,
         "annotationParameters": {
             "mediapipeFace": {
@@ -268,7 +268,7 @@ annotationParametersMap = {
         },
         "model": "7c6d889cb9c04b78858d8fece80f9f85"
     },
-    "姿态类 - OpenPose（姿态）- openpose (OpenPose 姿态)": {
+    "OpenPose - openpose": {
         "preprocessor": 10,
         "annotationParameters": {
             "openpose": {
@@ -277,7 +277,7 @@ annotationParametersMap = {
         },
         "model": "13c1e1b96ba64f9cbb2b54f89b5fe873"
     },
-    "姿态类 - OpenPose（姿态）- openpose hand (OpenPose 姿态及手部)": {
+    "OpenPose - openpose hand": {
         "preprocessor": 11,
         "annotationParameters": {
             "openposeHand": {
@@ -286,7 +286,7 @@ annotationParametersMap = {
         },
         "model": "13c1e1b96ba64f9cbb2b54f89b5fe873"
     },
-    "姿态类 - OpenPose（姿态）- openpose face (OpenPose 姿态及脸部)": {
+    "OpenPose - openpose face": {
         "preprocessor": 12,
         "annotationParameters": {
             "openposeFace": {
@@ -295,7 +295,7 @@ annotationParametersMap = {
         },
         "model": "13c1e1b96ba64f9cbb2b54f89b5fe873"
     },
-    "姿态类 - OpenPose（姿态）- openpose_faceonly (OpenPose 仅脸部)": {
+    "OpenPose - openpose_faceonly": {
         "preprocessor": 13,
         "annotationParameters": {
             "openposeFaceonly": {
@@ -304,7 +304,7 @@ annotationParametersMap = {
         },
         "model": "13c1e1b96ba64f9cbb2b54f89b5fe873"
     },
-    "姿态类 - OpenPose（姿态）- openpose_full (OpenPose 姿态、手部及脸部)": {
+    "OpenPose - openpose_full": {
         "preprocessor": 14,
         "annotationParameters": {
             "openposeFull": {
@@ -313,7 +313,7 @@ annotationParametersMap = {
         },
         "model": "13c1e1b96ba64f9cbb2b54f89b5fe873"
     },
-    "姿态类 - OpenPose（姿态）- dw_openpose_full": {
+    "OpenPose - dw_openpose_full": {
         "preprocessor": 45,
         "annotationParameters": {
             "dwOpenposeFull": {
@@ -322,7 +322,7 @@ annotationParametersMap = {
         },
         "model": "13c1e1b96ba64f9cbb2b54f89b5fe873"
     },
-    # "姿态类 - OpenPose（姿态）- animal_openpose": {
+    # "OpenPose - animal_openpose": {
     #     "preprocessor": 53,
     #     "annotationParameters": {
     #         "animalOpenpose": {
@@ -330,7 +330,7 @@ annotationParametersMap = {
     #         }
     #     }
     # },
-    # "姿态类 - OpenPose（姿态）- densepose_parula": {
+    # "OpenPose - densepose_parula": {
     #     "preprocessor": 56,
     #     "annotationParameters": {
     #         "denseposeParula": {
@@ -338,7 +338,7 @@ annotationParametersMap = {
     #         }
     #     }
     # }
-    "画面参考 - Tile/Blur（分块/模糊）- tile_resample(分块重采样)": {
+    "Tile/Blur - tile_resample": {
         "preprocessor": 34,
         "annotationParameters": {
             "tileResample": {
@@ -347,7 +347,7 @@ annotationParametersMap = {
         },
         "model": "a696b5bdadc740119fd76505b33d6898"
     },
-    "画面参考 - Tile/Blur（分块/模糊）- tile_colorfix": {
+    "Tile/Blur - tile_colorfix": {
         "preprocessor": 43,
         "annotationParameters": {
             "tileColorfix": {
@@ -356,7 +356,7 @@ annotationParametersMap = {
         },
         "model": "a696b5bdadc740119fd76505b33d6898"
     },
-    "画面参考 - Tile/Blur（分块/模糊）- tile_colorfix+sharp": {
+    "Tile/Blur - tile_colorfix+sharp": {
         "preprocessor": 44,
         "annotationParameters": {
             "tileColorfixSharp": {
@@ -366,7 +366,7 @@ annotationParametersMap = {
         },
         "model": "a696b5bdadc740119fd76505b33d6898"
     },
-    "画面参考 - Tile/Blur（分块/模糊）- blur_gaussian": {
+    "Tile/Blur - blur_gaussian": {
         "preprocessor": 52,
         "annotationParameters": {
             "blurGaussian": {
@@ -376,7 +376,7 @@ annotationParametersMap = {
         },
         "model": "a696b5bdadc740119fd76505b33d6898"
     },
-    "风格迁移 - IP-Adapter - ip-adapter-siglip": {
+    "IP-Adapter - ip-adapter-siglip": {
         "preprocessor": 66,
         "annotationParameters": {
             "ipAdapterSiglip": {
@@ -385,21 +385,21 @@ annotationParametersMap = {
         },
         "model": "c6ed70879cf011ef96d600163e37ec70"
     },
-    "局部重绘 - Inpaint（局部重绘）- inpaint_global_harmonious": {
+    "Inpaint - inpaint_global_harmonious": {
         "preprocessor": 40,
         "annotationParameters": {
             "inpaintGlobalHarmonious": {}
         },
         "model": "31df01fc271d484ca4d496179d69a665"
     },
-    "局部重绘 - Inpaint（局部重绘）- inpaint_only": {
+    "Inpaint - inpaint_only": {
         "preprocessor": 41,
         "annotationParameters": {
             "inpaintOnly": {}
         },
         "model": "31df01fc271d484ca4d496179d69a665"
     },
-    "局部重绘 - Inpaint（局部重绘）- inpaint_only+lama": {
+    "Inpaint - inpaint_only+lama": {
         "preprocessor": 42,
         "annotationParameters": {
             "inpaintOnlyLama": {}
