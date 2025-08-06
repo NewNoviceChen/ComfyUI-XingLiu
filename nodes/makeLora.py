@@ -66,10 +66,9 @@ class MergeLoraNode:
     @classmethod
     def INPUT_TYPES(s):
         return {
-            "required": {
-                "Lora_1": ("LORA", {"forceInput": True})
-            },
+            "required": {},
             "optional": {
+                "Lora_1": ("LORA", {"forceInput": True}),
                 "Lora_2": ("LORA", {"forceInput": True}),
                 "Lora_3": ("LORA", {"forceInput": True}),
                 "Lora_4": ("LORA", {"forceInput": True}),
@@ -82,7 +81,7 @@ class MergeLoraNode:
     RETURN_NAMES = ('lora_list',)
     FUNCTION = "make_lora_list"
 
-    def make_lora_list(self, Lora_1, Lora_2=None, Lora_3=None,
+    def make_lora_list(self, Lora_1=None, Lora_2=None, Lora_3=None,
                        Lora_4=None, Lora_5=None):
         # 创建一个空列表
         lora_list = []

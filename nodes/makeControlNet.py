@@ -19,7 +19,7 @@ class MakeControlNetNode:
         return {
             "required": {
                 "auth": ("AUTH",),
-                "image": ("IMAGE", {'default': '',}),
+                "image": ("IMAGE", {'default': '', }),
                 "preprocessor": (
                     ["Canny",
                      "SoftEdge - hed",
@@ -144,10 +144,9 @@ class MergeControlNetNode:
     @classmethod
     def INPUT_TYPES(s):
         return {
-            "required": {
-                "ControlNet_1": ("CONTROLNET", {"forceInput": True})
-            },
+            "required": {},
             "optional": {
+                "ControlNet_1": ("CONTROLNET", {"forceInput": True}),
                 "ControlNet_2": ("CONTROLNET", {"forceInput": True}),
                 "ControlNet_3": ("CONTROLNET", {"forceInput": True}),
                 "ControlNet_4": ("CONTROLNET", {"forceInput": True})
@@ -159,25 +158,30 @@ class MergeControlNetNode:
     RETURN_NAMES = ('ControlNet组合',)
     FUNCTION = "make_controlnet_list"
 
-    def make_controlnet_list(self, ControlNet_1, ControlNet_2=None, ControlNet_3=None,
+    def make_controlnet_list(self, ControlNet_1=None, ControlNet_2=None, ControlNet_3=None,
                              ControlNet_4=None):
         # 创建一个空列表
         controlnet_list = []
+        count = 1
         # 添加所有非None的controlnet_info到列表中
         if ControlNet_1 is not None and ControlNet_1 != '':
             info = json.loads(ControlNet_1)
-            info["unitOrder"] = 1
+            info["unitOrder"] = count
+            count += 1
             controlnet_list.append(info)
         if ControlNet_2 is not None and ControlNet_2 != '':
             info = json.loads(ControlNet_2)
-            info["unitOrder"] = 2
+            info["unitOrder"] = count
+            count += 1
             controlnet_list.append(info)
         if ControlNet_3 is not None and ControlNet_3 != '':
             info = json.loads(ControlNet_3)
-            info["unitOrder"] = 3
+            info["unitOrder"] = count
+            count += 1
             controlnet_list.append(info)
         if ControlNet_4 is not None and ControlNet_4 != '':
             info = json.loads(ControlNet_4)
-            info["unitOrder"] = 4
+            info["unitOrder"] = count
+            count += 1
             controlnet_list.append(info)
         return (controlnet_list,)
