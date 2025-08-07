@@ -185,9 +185,9 @@ class Text2ImageCustomNode:
                      "1.5 - ClearVAE_V2.3.safetensors",
                      "1.5 - difconsistencyRAWVAE_v10.pt",
                      "XL - sd_xl_vae_1.0"],),
-                "hiResFix": ("HIRESFIX", {"forceInput": True}),
-                "lora_list": ("LORA_LIST", {"forceInput": True}),
-                "controlnet_list": ("CONTROLNET_LIST", {"forceInput": True})
+                "hiResFix": ("HIRESFIX",),
+                "lora_list": ("LORA_LIST",),
+                "controlnet_list": ("CONTROLNET_LIST",)
             }
         }
 
@@ -356,9 +356,9 @@ class Text2ImageCustomAlphaNode:
                      "1.5 - ClearVAE_V2.3.safetensors",
                      "1.5 - difconsistencyRAWVAE_v10.pt",
                      "XL - sd_xl_vae_1.0"],),
-                "hiResFix": ("HIRESFIX", {"forceInput": True}),
-                "lora_list": ("LORA_LIST", {"forceInput": True}),
-                "controlnet_list": ("CONTROLNET_LIST", {"forceInput": True})
+                "hiResFix": ("HIRESFIX",),
+                "lora_list": ("LORA_LIST",),
+                "controlnet_list": ("CONTROLNET_LIST",)
             }
         }
 
