@@ -276,6 +276,7 @@ class Text2ImageCustomNode:
             batched = torch.cat(image_tensors, dim=0)
         return (batched,)
 
+
 class Text2ImageCustomAlphaNode:
     def __init__(self):
         pass
@@ -426,6 +427,75 @@ class Text2ImageCustomAlphaNode:
         }
         generateServer = GenerateServer(accessKey=accessKey, secretKey=secretKey)
         data = generateServer._request_signature_uri("/api/generate/webui/text2img/ultra", json_data)
+        generateUuid = data["generateUuid"]
+        json_data = {"generateUuid": generateUuid}
+        image_tensors = []
+        batched = None
+        while True:
+            data = generateServer._request_signature_uri("/api/generate/webui/status", json_data)
+            if data["generateStatus"] == 5:
+                for image in data["images"]:
+                    image_tensor = image_to_tensor_by_url(image["imageUrl"])
+                    image_tensors.append(image_tensor)
+                break
+            if data["generateStatus"] == 6 or data["generateStatus"] == 7:
+                raise Exception("error")
+            time.sleep(5)
+
+        if image_tensors:  # 确保列表不为空
+            batched = torch.cat(image_tensors, dim=0)
+        return (batched,)
+
+
+class Text2ImageF1ContentNode:
+    def __init__(self):
+        pass
+
+    CATEGORY = CATEGORY_NAME
+
+    @classmethod
+    def INPUT_TYPES(s):
+        return {
+            "required": {
+                "auth": ("AUTH",),
+                "model": (["pro", "max"],),
+                "prompt": ("STRING", {"multiline": True}),
+                "aspectRatio": (["1:1", "2:3", "3:2", "3:4", "4:3", "9:16", "16:9", "9:21", "21:9"],),
+                "imgCount": ("INT", {
+                    "default": 1,
+                    "min": 1,
+                    "max": 4,
+                    "step": 1,
+                    "display": "number"}),
+                "guidance_scale": ("FLOAT", {
+                    "default": 3.5,
+                    "min": 1.0,
+                    "max": 20.0,
+                    "step": 0.1,
+                    "round": 0.1,
+                    "display": "number"}),
+            }
+        }
+
+    RETURN_TYPES = ('IMAGE',)
+    RETURN_NAMES = ('IMAGE',)
+    FUNCTION = "text2img"
+
+    def text2img(self, auth, model, prompt, aspectRatio, imgCount, guidance_scale):
+        accessKey = os.getenv("LibLibAccessKey")
+        secretKey = os.getenv("LibLibSecretKey")
+        generateServer = GenerateServer(accessKey=accessKey, secretKey=secretKey)
+        json_data = {
+            "templateUuid": "fe9928fde1b4491c9b360dd24aa2b115",
+            "generateParams": {
+                "model": model,
+                "prompt": prompt,
+                "aspectRatio": aspectRatio,
+                "guidance_scale": guidance_scale,
+                "imgCount": imgCount
+            }
+        }
+        data = generateServer._request_signature_uri("/api/generate/kontext/text2img", json_data)
         generateUuid = data["generateUuid"]
         json_data = {"generateUuid": generateUuid}
         image_tensors = []

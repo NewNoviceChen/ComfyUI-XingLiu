@@ -1,8 +1,11 @@
-from .nodes.text2image import Text2ImageCustomNode, Text2ImageByAlphaNode, Text2ImageCustomAlphaNode
+from .nodes.makeImageList import MergeImageListNode
+from .nodes.text2image import Text2ImageCustomNode, Text2ImageByAlphaNode, Text2ImageCustomAlphaNode, \
+    Text2ImageF1ContentNode
 from .nodes.makeHiResFix import MakeHiResFixNode
 from .nodes.makeLora import MakeLoraNode, MergeLoraNode
 from .nodes.auth import MakeAuthNode
-from .nodes.image2image import Image2ImageByAlphaNode, Image2ImageCustomNode, Image2ImageCustomAlphaNode
+from .nodes.image2image import Image2ImageByAlphaNode, Image2ImageCustomNode, Image2ImageCustomAlphaNode, \
+    Image2ImageF1ContentNode
 from .nodes.makeControlNet import MakeControlNetNode, MergeControlNetNode
 from .nodes.uploadLibLib import UploadLibLibNode
 
@@ -19,6 +22,8 @@ NODE_CLASS_MAPPINGS = {
     "Text2ImageCustom": Text2ImageCustomNode,
     "Text2ImageByAlpha": Text2ImageByAlphaNode,
     "Text2ImageCustomAlpha": Text2ImageCustomAlphaNode,
-    "Image2ImageCustomAlpha": Image2ImageCustomAlphaNode
-
+    "Image2ImageCustomAlpha": Image2ImageCustomAlphaNode,
+    "Text2ImageF1ContentNode": Text2ImageF1ContentNode,
+    "Image2ImageF1ContentNode": Image2ImageF1ContentNode,
+    "MergeImageListNode": MergeImageListNode
 }

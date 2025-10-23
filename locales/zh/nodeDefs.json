@@ -372,5 +372,73 @@
         "name": "controlnet合并参数(可选)"
       }
     }
+  },
+  "Text2ImageF1ContentNode": {
+    "display_name": "F.1 Kontext-文生图",
+    "inputs": {
+      "auth": {
+        "name": "签名参数"
+      },
+      "prompt": {
+        "name": "正向提示词"
+      },
+      "aspectRatio": {
+        "name": "图片宽高比"
+      },
+      "imgCount": {
+        "name": "单次生图张数"
+      },
+      "guidance_scale": {
+        "name": "提示词引导系数"
+      }
+    }
+  },
+  "Image2ImageF1ContentNode": {
+    "display_name": "F.1 Kontext-图生图",
+    "inputs": {
+      "auth": {
+        "name": "签名参数"
+      },
+      "prompt": {
+        "name": "正向提示词"
+      },
+      "aspectRatio": {
+        "name": "图片宽高比"
+      },
+      "imgCount": {
+        "name": "单次生图张数"
+      },
+      "guidance_scale": {
+        "name": "提示词引导系数"
+      },
+      "image_list": {
+        "name": "参考图列表"
+      }
+    }
+  },
+  "MergeImageListNode": {
+    "display_name": "合并参考图列表",
+    "inputs": {
+      "auth": {
+        "name": "签名参数"
+      },
+      "image_1": {
+        "name": "图片1"
+      },
+      "image_2": {
+        "name": "图片2"
+      },
+      "image_3": {
+        "name": "图片3"
+      },
+      "image_4": {
+        "name": "图片4"
+      }
+    },
+    "outputs": {
+      "0": {
+        "name": "参考图列表"
+      }
+    }
   }
 }

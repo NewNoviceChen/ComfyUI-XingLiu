@@ -22,3 +22,12 @@ uuid获取参考[LiblibAI x 星流 图像大模型API 使用说明](https://libl
 ### 自定义模型
 
 ![img_3.png](screenshot/img_3.png)
+
+## F.1 Kontext
+
+## 文生图
+![img_5.png](screenshot/img_5.png)
+
+## 图生图
+![img_4.png](screenshot/img_4.png)
+
