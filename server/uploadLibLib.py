@@ -8,7 +8,7 @@ from ..server.generateServer import GenerateServer
 
 
 def uploadLibLib(image,accessKey,secretKey):
-    save_image(image[0], "__temp.png")
+    save_image(image[0].permute(2, 0, 1), "__temp.jpg")
     file_name_uuid = uuid.uuid4()
     json_data = {
         "name": str(file_name_uuid),
