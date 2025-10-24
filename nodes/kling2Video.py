@@ -59,7 +59,7 @@ class Text2VideoKlingNode:
             data = generateServer._request_signature_uri("/api/generate/webui/status", json_data)
             if data["generateStatus"] == 5:
                 for video in data["videos"]:
-                    video_path = download_video(video, folder_paths.get_temp_directory())
+                    video_path = download_video(video["videoUrl"], folder_paths.get_temp_directory())
                 break
             if data["generateStatus"] == 6 or data["generateStatus"] == 7:
                 raise Exception("error")
