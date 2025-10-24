@@ -4,7 +4,7 @@ import time
 import torch
 
 from ..server.generateServer import GenerateServer
-from ..server.imagesUtils import image_to_tensor_by_url
+from ..server.mediaUtils import image_to_tensor_by_url
 
 CATEGORY_NAME = "ComfyUI-XingLiu"
 

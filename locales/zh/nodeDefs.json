@@ -440,5 +440,51 @@
         "name": "参考图列表"
       }
     }
+  },
+  "Text2VideoKlingNode": {
+    "display_name": "可灵-文生视频",
+    "inputs": {
+      "auth": {
+        "name": "签名参数"
+      },
+      "model": {
+        "name": "可灵模型"
+      },
+      "prompt": {
+        "name": "提示词"
+      },
+      "aspectRatio": {
+        "name": "视频宽高比"
+      },
+      "duration": {
+        "name": "视频时长"
+      }
+    }
+  },
+  "Image2VideoKlingNode": {
+    "display_name": "可灵-首尾帧生视频(暂时无法使用)",
+    "inputs": {
+      "auth": {
+        "name": "签名参数"
+      },
+      "model": {
+        "name": "可灵模型"
+      },
+      "prompt": {
+        "name": "提示词"
+      },
+      "startFrame": {
+        "name": "首帧图片"
+      },
+      "endFrame": {
+        "name": "尾帧图片"
+      },
+      "mode": {
+        "name": "生成模式"
+      },
+      "duration": {
+        "name": "视频时长"
+      }
+    }
   }
 }

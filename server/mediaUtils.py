@@ -25,6 +25,17 @@ def download_image(url, save_path):
         print(f"下载失败，HTTP 状态码: {response.status_code}")
 
 
+def download_video(url, save_path):
+    response = requests.get(url, stream=True)
+    if response.status_code == 200:
+        response = requests.get(url)
+        response.raise_for_status()  # 检查HTTP错误
+        filename = os.path.basename(urlparse(url).path)
+        with open(save_path + "/" + filename, "wb") as f:
+            f.write(response.content)
+    return save_path + "/" + filename
+
+
 def image_to_tensor_by_url(url):
     response = requests.get(url)
     response.raise_for_status()

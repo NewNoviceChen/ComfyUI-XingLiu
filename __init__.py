@@ -1,3 +1,4 @@
+from .nodes.kling2Video import Text2VideoKlingNode, Image2VideoKlingNode
 from .nodes.makeImageList import MergeImageListNode
 from .nodes.text2image import Text2ImageCustomNode, Text2ImageByAlphaNode, Text2ImageCustomAlphaNode, \
     Text2ImageF1ContentNode
@@ -25,5 +26,7 @@ NODE_CLASS_MAPPINGS = {
     "Image2ImageCustomAlpha": Image2ImageCustomAlphaNode,
     "Text2ImageF1ContentNode": Text2ImageF1ContentNode,
     "Image2ImageF1ContentNode": Image2ImageF1ContentNode,
-    "MergeImageListNode": MergeImageListNode
+    "MergeImageListNode": MergeImageListNode,
+    "Text2VideoKlingNode": Text2VideoKlingNode,
+    "Image2VideoKlingNode(can`t use)": Image2VideoKlingNode
 }

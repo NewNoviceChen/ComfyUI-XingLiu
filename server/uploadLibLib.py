@@ -8,11 +8,11 @@ from ..server.generateServer import GenerateServer
 
 
 def uploadLibLib(image,accessKey,secretKey):
-    save_image(image[0].permute(2, 0, 1), "__temp.jpg")
+    save_image(image[0], "__temp.png")
     file_name_uuid = uuid.uuid4()
     json_data = {
         "name": str(file_name_uuid),
-        "extension": "jpg"
+        "extension": "png"
     }
     generateServer = GenerateServer(accessKey=accessKey, secretKey=secretKey)
     data = generateServer._request_signature_uri("/api/generate/upload/signature", json_data)
@@ -25,9 +25,9 @@ def uploadLibLib(image,accessKey,secretKey):
         'x-oss-credential': data["xOssCredential"],
         'x-oss-signature-version': data["xOssSignatureVersion"],
     }
-    with open('__temp.jpg', 'rb') as f:
-        files = {'file': (f'{file_name_uuid}.jpg', f, 'image/jpg')}
+    with open('__temp.png', 'rb') as f:
+        files = {'file': (f'{file_name_uuid}.png', f, 'image/png')}
         response = requests.post(data["postUrl"], data=json_data, files=files)
     sourceImage = data["postUrl"] + "/" + data["key"]
-    os.remove(f"__temp.jpg")
+    os.remove(f"__temp.png")
     return sourceImage

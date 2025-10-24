@@ -4,7 +4,7 @@ import time
 import torch
 from ..server.generateServer import GenerateServer
 from ..server.getModel import get_vad_uuid_by_vad_name
-from ..server.imagesUtils import image_to_tensor_by_url
+from ..server.mediaUtils import image_to_tensor_by_url
 from ..server.uploadLibLib import uploadLibLib
 
 CATEGORY_NAME = "ComfyUI-XingLiu"
@@ -17,6 +17,7 @@ class Image2ImageByAlphaNode:
     def INPUT_TYPES(s):
         return {
             "required": {
+                "auth": ("AUTH",),
                 "prompt": ("STRING", {"multiline": True}),
                 "imgCount": ("INT", {
                     "default": 1,
